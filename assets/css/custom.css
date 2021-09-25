@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat&display=swap');
+
+html {
+  width: 100% !important;
+  height: 100% !important;
+  background: #000 url('~assets/img/bg2.jpg') center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  letter-spacing: 1px;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #fdb6ba;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Bangers';
+  font-weight: 700;
+  color: #fff;
+  background: transparent !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga' on;
+}
+
+main {
+  flex: 1; /* Or flex-grow: 1;*/
+}
+
+nav {
+  height: 140px;
+  top: 10px;
+  display: grid;
+  width: 100%;
+  align-content: center;
+  z-index: 3000;
+}
+
+/* .arrow-left {
+  position: relative;
+  top: 72px;
+  left: 10px;
+  z-index: 5000;
+}
+
+.arrow-right {
+  position: relative;
+  top: 70px;
+  right: -271px;
+  z-index: 5000;
+}
+
+.btntortilla {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  z-index: 6000;
+} */
+
+.aceituna {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  width: 150px;
+}
+
+.chorizo {
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  width: 110px;
+}
+
+.copyright {
+  color: #fff;
+  padding: 8px;
+  margin-top: 0px;
+}
