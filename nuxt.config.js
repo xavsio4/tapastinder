@@ -52,12 +52,12 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: '/crypto-ticker-snapshot',
+        content: '/tapastinder.png',
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/crypto-ticker-snapshot.png',
+        content: '/tapastinder.png',
       },
       {
         hid: 'og:site_name',
@@ -103,6 +103,14 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  sitemap: {
+    // options
+  },
+
+  robots: {
+    /* module options */
+  }
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
