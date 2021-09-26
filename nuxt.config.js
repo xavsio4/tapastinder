@@ -10,12 +10,68 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tapastinder',
+    title: 'tapastinder - Le Tinder des tapas',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Découvrez une part de la gastronomie espagnole avec le Tinder pour les tapas',
+      },
       { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'author', name: 'author', content: 'X. Villamuera' },
+      {
+        hid: 'apple-mobile-web-app-capable',
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes',
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'TapasTinder',
+      },
+      { hid: 'twitter:site', name: 'twitter:site', content: 'tapastinder.com' },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: 'X. Villamuera',
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Crypto Ticker - A cryptocurrency comparison tool',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          'Découvrez une part de la gastronomie espagnole avec le Tinder pour les tapas',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: '/crypto-ticker-snapshot',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/crypto-ticker-snapshot.png',
+      },
+      {
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: 'TapasTinder',
+      },
+      { hid: 'og:title', name: 'og:title', content: 'TapasTinder' },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content:
+          'Découvrez une part de la gastronomie espagnole avec le Tinder pour les tapas',
+      },
+      { hid: 'og:type', name: 'og:type', content: 'app' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -51,7 +107,15 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      name: 'TapasTinder',
+      short_name: 'tapastinder',
+      lang: 'fr',
+      description:
+        'Découvrez une part de la gastronomie espagnole avec le Tinder pour les tapas.',
+      useWebmanifestExtension: false,
+    },
+    meta: {
+      appleMobileWebAppCapable: true,
     },
   },
 

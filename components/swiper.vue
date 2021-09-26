@@ -42,11 +42,13 @@
       </div>
       <inter
         v-for="(card, index) in cards.data"
+        :key="card.id"
+        :index="index"
         v-on:swipe="onSwipe"
         class="mx-auto"
         style="margin-top: -350px"
         ><card
-          :current="index === cards.index"
+          :current="index === card.index"
           :nom_es="card.nom_es"
           :picture="card.picture"
           :approved="card.approved"
@@ -74,12 +76,12 @@
         </h2>
 
         <ul class="list-unstyled">
-          <li class="mt-4" v-for="(choice, index) in cardsChoice" :key="choice">
-            <span v-if="choice == false">
+          <li class="mt-4" v-for="choice in cards.data" :key="choice.id">
+            <span v-if="choice.approved === false">
               <div>
                 <figure>
                   <img
-                    :src="cards.data[index].picture"
+                    :src="choice.picture"
                     class="
                       rounded-md
                       border-gray-50 border-2
@@ -90,8 +92,8 @@
                   />
                 </figure>
                 <div>
-                  <span class="tapaname">{{ cards.data[index].nom_es }}</span>
-                  <p class="description">{{ cards.data[index].description }}</p>
+                  <span class="tapaname">{{ choice.nom_es }}</span>
+                  <p class="description">{{ choice.description }}</p>
                 </div>
               </div>
             </span>
@@ -103,20 +105,20 @@
         <h2 class="text-2xl">Vous avez choisi de manger</h2>
 
         <ul class="list-unstyled">
-          <li class="mt-4" v-for="(choice, index) in cardsChoice" :key="choice">
-            <span v-if="choice == true">
+          <li class="mt-4" v-for="choice in cards.data" :key="choice.id">
+            <span v-if="choice.approved === true">
               <div class="media">
                 <figure class="pull-left">
                   <img
-                    :src="cards.data[index].picture"
+                    :src="choice.picture"
                     class="rounded-md border-gray-50 border-2"
                     width="130"
                     height="130"
                   />
                 </figure>
                 <div class="media-body">
-                  <span class="tapaname">{{ cards.data[index].nom_es }} </span>
-                  <p class="description">{{ cards.data[index].description }}</p>
+                  <span class="tapaname">{{ choice.nom_es }} </span>
+                  <p class="description">{{ choice.description }}</p>
                 </div>
               </div>
             </span>
@@ -171,7 +173,6 @@ export default {
       await this.$axios
         .$get(faqUrl)
         .then((response) => {
-          console.log(response)
           this.cards.data = response
         })
         .catch((error) => {
@@ -185,15 +186,13 @@ export default {
     onSwipe(direction) {
       //accepted
       if (direction === 'swipe-right') {
-        this.cardsChoice[this.cards.index] = true
-        this.cards.data[this.cards.index].approved = true
+        this.cardsChoice[4 - this.cards.index] = true
+        this.cards.data[4 - this.cards.index].approved = true
       } else {
-        this.cardsChoice[this.cards.index] = false
-        this.cards.data[this.cards.index].approved = false
+        this.cardsChoice[4 - this.cards.index] = false
+        this.cards.data[4 - this.cards.index].approved = false
       }
-      console.log(this.cardsChoice)
 
-      console.log(this.cards.index)
       this.cardcount--
       this.cards.index++
       if (this.cards.index >= 5) {
@@ -252,42 +251,6 @@ export default {
   letter-spacing: 1px;
 }
 
-/* #tapasummary {
-  margin-top: 10px;
-  display: block;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-} */
-
-/* CONSTANTS */
-/* COLOURS */
-/* EXTENDS */
-/*.card > .image,
-.card > .stars > .star-active,
-.card > .stars > .star-inactive {
-  background: center center no-repeat transparent;
-  background-size: contain;
-}*/
-
-/*.card-container {
-  margin: 140px auto 0 auto;
-  width: 390px;
-  height: 410px;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}*/
-
-/* LOADING */
-/* .loading > .loading-icon,
-.loading > .loading-icon:before,
-.loading > .loading-icon:after {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-} */
-
 .loading {
   margin: 0 auto;
   z-index: 10;
@@ -298,51 +261,6 @@ export default {
   z-index: 22;
 }
 
-/* .loading > .loading-icon {
-  width: 128px;
-  height: 128px;
-}
-
-.loading > .loading-icon:before,
-.loading > .loading-icon:after {
-  content: '';
-  display: block;
-}
-
-.loading > .loading-icon:before {
-  z-index: 0;
-  -webkit-animation: 1s pulse infinite linear;
-  animation: 1s pulse infinite linear;
-} */
-
-/* @-webkit-keyframes pulse {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(1.5);
-  }
-} */
-/* @keyframes pulse {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
-  }
-} */
 /* CARD */
 .card {
   /* pointer-events: none;*/
