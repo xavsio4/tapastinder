@@ -110,7 +110,7 @@ export default {
 
   robots: {
     /* module options */
-  }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
